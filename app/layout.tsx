@@ -6,6 +6,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { WhatsAppButton } from '@/components/whatsapp-button'
 import './globals.css'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.alegaby.com'),
@@ -119,6 +120,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <SpeedInsights />
         <JsonLd data={organizationSchema} />
         <Header />
         {children}
