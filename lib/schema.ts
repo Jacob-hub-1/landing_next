@@ -4,7 +4,7 @@ const BRAND_NAME = 'Alegaby'
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'WholesaleStore'],
   additionalType: 'https://schema.org/HVACBusiness',
   '@id': `${SITE_URL}/#organization`,
   name: BUSINESS_NAME,
@@ -14,7 +14,7 @@ export const organizationSchema = {
     'Leading HVAC equipment supplier and building materials trading company in the UAE. Wholesale compressors, refrigerants, thermostats, copper fittings, tools, paint, and construction hardware in Dubai and Sharjah.',
   telephone: '+97165220089',
   email: 'info@alegaby.com',
-  image: `${SITE_URL}/hero-imgage.avif`,
+  image: `${SITE_URL}/hero-image.avif`,
   logo: `${SITE_URL}/icon.svg`,
   priceRange: '$$',
   currenciesAccepted: 'AED',
@@ -79,7 +79,15 @@ export const organizationSchema = {
       },
     ],
   },
+  // Add directory profile URLs as you create them (Google Business, Yellow Pages UAE, etc.)
   sameAs: [],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+97165220089',
+    contactType: 'sales',
+    availableLanguage: ['English', 'Arabic', 'Hindi', 'Urdu'],
+    areaServed: 'AE',
+  },
 }
 
 export function buildProductSchema({
@@ -149,6 +157,21 @@ export function buildBreadcrumbSchema(items: { name: string; url: string }[]) {
       position: index + 1,
       name: item.name,
       item: `${SITE_URL}${item.url}`,
+    })),
+  }
+}
+
+export function buildFAQSchema(faqs: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
     })),
   }
 }

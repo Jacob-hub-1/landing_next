@@ -4,6 +4,10 @@ import { Brands } from "@/components/brands"
 import { Services } from "@/components/services"
 import { About } from "@/components/about"
 import { Contact } from "@/components/contact"
+import { FAQ } from "@/components/faq"
+import { JsonLd } from "@/components/seo/JsonLd"
+import { buildFAQSchema } from "@/lib/schema"
+import { faqData } from "@/lib/data/faq"
 
 export const metadata: Metadata = {
   title: "Al Egaby Gen. Tr. (L.L.C) | HVAC Suppliers & Building Materials UAE",
@@ -29,11 +33,13 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <JsonLd data={buildFAQSchema(faqData)} />
       <Hero />
       <Brands />
       <Services />
       <About />
       <Contact />
+      <FAQ />
     </main>
   )
 }
