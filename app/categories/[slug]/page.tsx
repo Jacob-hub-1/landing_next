@@ -29,7 +29,14 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
+      url: `/categories/${slug}`,
       images: [{ url: category.image, alt: `${category.name} supplier UAE` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [category.image],
     },
   }
 }

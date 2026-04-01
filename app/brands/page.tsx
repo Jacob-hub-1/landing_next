@@ -10,6 +10,20 @@ export const metadata: Metadata = {
   description:
     'Explore our portfolio of trusted HVAC and building materials brands including Honeywell, Daikin, Copeland, Jotun, Makita, Schneider Electric, and more. Authorized supplier in Dubai, Sharjah, and UAE.',
   alternates: { canonical: '/brands' },
+  openGraph: {
+    title: 'HVAC & Building Materials Brands',
+    description:
+      'Explore our portfolio of trusted HVAC and building materials brands including Honeywell, Daikin, Copeland, Jotun, Makita, Schneider Electric, and more.',
+    url: '/brands',
+    images: [{ url: '/hero-image.avif', alt: 'Alegaby trusted HVAC and building materials brands in UAE' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC & Building Materials Brands',
+    description:
+      'Explore our portfolio of trusted HVAC and building materials brands including Honeywell, Daikin, Copeland, Jotun, Makita, Schneider Electric, and more.',
+    images: ['/hero-image.avif'],
+  },
 }
 
 const breadcrumb = buildBreadcrumbSchema([

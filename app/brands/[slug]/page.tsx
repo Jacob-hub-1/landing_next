@@ -30,7 +30,14 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
+      url: `/brands/${slug}`,
       images: [{ url: brand.logo, alt: brand.altText }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [brand.logo],
     },
   }
 }

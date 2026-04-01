@@ -9,6 +9,20 @@ export const metadata: Metadata = {
   description:
     'Al Egaby Gen. Tr. (L.L.C) supplies HVAC compressors, refrigerants, thermostats, and building materials in Sharjah, near Al Qulayaa and Industrial Area. Wholesale pricing and fast delivery across Sharjah.',
   alternates: { canonical: '/locations/sharjah-hvac-supply' },
+  openGraph: {
+    title: 'HVAC Spare Parts Supplier in Sharjah | Al Qulayaa',
+    description:
+      'Al Egaby Gen. Tr. (L.L.C) supplies HVAC compressors, refrigerants, thermostats, and building materials in Sharjah with wholesale pricing.',
+    url: '/locations/sharjah-hvac-supply',
+    images: [{ url: '/hero-image.avif', alt: 'Alegaby Sharjah HVAC and building materials supplier' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC Spare Parts Supplier in Sharjah | Al Qulayaa',
+    description:
+      'Al Egaby Gen. Tr. (L.L.C) supplies HVAC compressors, refrigerants, thermostats, and building materials in Sharjah with wholesale pricing.',
+    images: ['/hero-image.avif'],
+  },
 }
 
 const breadcrumb = buildBreadcrumbSchema([
@@ -142,17 +156,17 @@ export default function SharjahLocationPage() {
                     <div className="flex items-start gap-3">
                       <Phone className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />
                       <div className="flex flex-col gap-1">
-                        <a href="tel:+97165220089" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                        <a href="tel:+97165220089" className="text-sm text-blue-600 underline hover:text-blue-700 transition-colors">
                           06 522 0089
                         </a>
-                        <a href="tel:+971568880263" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                        <a href="tel:+971568880263" className="text-sm text-blue-600 underline hover:text-blue-700 transition-colors">
                           0568880263
                         </a>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Mail className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />
-                      <a href="mailto:info@alegaby.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      <a href="mailto:info@alegaby.com" className="text-sm text-blue-600 underline hover:text-blue-700 transition-colors">
                         info@alegaby.com
                       </a>
                     </div>

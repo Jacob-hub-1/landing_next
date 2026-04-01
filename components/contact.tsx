@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react"
+import { ContactForm } from "@/components/contact-form"
 
 export function Contact() {
   return (
@@ -37,7 +38,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Landline</p>
-                  <a href="tel:+97165220089" className="mt-1 text-muted-foreground hover:text-foreground transition-colors block">
+                  <a href="tel:+97165220089" className="mt-1 text-blue-600 underline hover:text-blue-700 transition-colors block">
                     06 522 0089
                   </a>
                 </div>
@@ -49,7 +50,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Mobile</p>
-                  <a href="tel:+971568880263" className="mt-1 text-muted-foreground hover:text-foreground transition-colors block">
+                  <a href="tel:+971568880263" className="mt-1 text-blue-600 underline hover:text-blue-700 transition-colors block">
                     0568880263
                   </a>
                 </div>
@@ -61,7 +62,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Email</p>
-                  <a href="mailto:info@alegaby.com" className="mt-1 text-muted-foreground hover:text-foreground transition-colors block">
+                  <a href="mailto:info@alegaby.com" className="mt-1 text-blue-600 underline hover:text-blue-700 transition-colors block">
                     info@alegaby.com
                   </a>
                 </div>
@@ -76,79 +77,7 @@ export function Contact() {
           </div>
 
           <div className="bg-card border border-border rounded-lg p-8">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-foreground"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    className="mt-2 block w-full px-4 py-3 bg-input border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="Your first name"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-foreground"
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    className="mt-2 block w-full px-4 py-3 bg-input border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="Your last name"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-foreground"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="mt-2 block w-full px-4 py-3 bg-input border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="mt-2 block w-full px-4 py-3 bg-input border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-                  placeholder="Tell us about your HVAC or building materials requirements..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center px-6 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

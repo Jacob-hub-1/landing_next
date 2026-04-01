@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/hero-imgage.avif',
+        url: '/hero-image.avif',
         width: 1200,
         height: 630,
         alt: 'Al Egaby Gen. Tr. (L.L.C) - HVAC equipment and building materials supplier in UAE',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: 'Al Egaby Gen. Tr. (L.L.C) | HVAC Suppliers & Building Materials UAE',
     description:
       'Wholesale HVAC spare parts, compressors, refrigerants, and building materials in Dubai and Sharjah. Fast delivery across UAE.',
-    images: ['/hero-imgage.avif'],
+    images: ['/hero-image.avif'],
   },
   robots: {
     index: true,

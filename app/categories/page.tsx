@@ -10,6 +10,20 @@ export const metadata: Metadata = {
   description:
     'Browse HVAC equipment and building materials categories — compressors, thermostats, refrigerants, valves, insulation, tools, paint, electrical, plumbing, and more. Wholesale supplier in Dubai and Sharjah, UAE.',
   alternates: { canonical: '/categories' },
+  openGraph: {
+    title: 'HVAC & Building Materials Products',
+    description:
+      'Browse HVAC equipment and building materials categories — compressors, thermostats, refrigerants, valves, insulation, tools, paint, electrical, plumbing, and more.',
+    url: '/categories',
+    images: [{ url: '/hero-image.avif', alt: 'Alegaby HVAC and building materials product categories' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC & Building Materials Products',
+    description:
+      'Browse HVAC equipment and building materials categories — compressors, thermostats, refrigerants, valves, insulation, tools, paint, electrical, plumbing, and more.',
+    images: ['/hero-image.avif'],
+  },
 }
 
 const breadcrumb = buildBreadcrumbSchema([

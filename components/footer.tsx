@@ -48,13 +48,13 @@ export function Footer() {
             <p className="text-sm font-semibold text-foreground">Contact</p>
             <div className="mt-3 flex flex-col gap-2">
               <p className="text-sm text-muted-foreground">Al Qulayaa, Sharjah, UAE</p>
-              <a href="tel:+97165220089" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="tel:+97165220089" className="text-sm text-blue-600 underline hover:text-blue-700 transition-colors">
                 06 522 0089
               </a>
-              <a href="tel:+971568880263" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="tel:+971568880263" className="text-sm text-blue-600 underline hover:text-blue-700 transition-colors">
                 0568880263
               </a>
-              <a href="mailto:info@alegaby.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:info@alegaby.com" className="text-sm text-blue-600 underline hover:text-blue-700 transition-colors">
                 info@alegaby.com
               </a>
               <p className="text-xs text-muted-foreground">Mon–Sat 8AM–6PM | Sun: Email only</p>
