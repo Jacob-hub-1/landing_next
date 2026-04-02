@@ -1,5 +1,66 @@
+import type { CSSProperties } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
+
+type BrandEntry = {
+  name: string
+  logo: string
+  alt: string
+}
+
+function chunkIntoRows<T>(items: T[], rowCount: number): T[][] {
+  if (items.length === 0) return Array.from({ length: rowCount }, () => [])
+  const base = Math.floor(items.length / rowCount)
+  const remainder = items.length % rowCount
+  const rows: T[][] = []
+  let start = 0
+  for (let i = 0; i < rowCount; i++) {
+    const size = base + (i < remainder ? 1 : 0)
+    rows.push(items.slice(start, start + size))
+    start += size
+  }
+  return rows
+}
+
+function BrandMarqueeRow({ brands, durationSec }: { brands: BrandEntry[]; durationSec: number }) {
+  return (
+    <div className="relative w-full overflow-hidden">
+      <div
+        className="flex w-max gap-4"
+        style={
+          {
+            animation: `scroll-left ${durationSec}s linear infinite`,
+          } as CSSProperties
+        }
+      >
+        {brands.map((brand, index) => (
+          <div
+            key={`marquee-a-${brand.name}-${index}`}
+            className="flex h-24 w-29 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white px-3 shadow-sm"
+          >
+            <Image
+              src={brand.logo}
+              alt={brand.alt}
+              width={120}
+              height={120}
+              className="max-h-full max-w-full object-contain opacity-90"
+            />
+          </div>
+        ))}
+        <div className="flex shrink-0 gap-4" aria-hidden>
+          {brands.map((brand, index) => (
+            <div
+              key={`marquee-b-${brand.name}-${index}`}
+              className="flex h-24 w-29 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white px-3 shadow-sm"
+            >
+              <Image src={brand.logo} alt="" width={120} height={120} className="max-h-full max-w-full object-contain opacity-90" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export function Brands() {
   const hvacBrands = [
@@ -50,6 +111,9 @@ export function Brands() {
     { name: "COSMOPLAST", logo: "/cosmoplast-alegaby.avif", alt: "Cosmoplast UPVC pipes storage tanks plastic products UAE" },
   ]
 
+  const mobileMarqueeRows = chunkIntoRows([...hvacBrands, ...buildingMaterialsBrands], 3)
+  const mobileRowDurationsSec = [36, 44, 52] as const
+
   return (
     <section id="products" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -60,7 +124,14 @@ export function Brands() {
           </p>
         </div>
 
-        <div>
+        <div className="md:hidden space-y-5">
+          {mobileMarqueeRows.map((row, rowIndex) => (
+            <BrandMarqueeRow key={`marquee-row-${rowIndex}`} brands={row} durationSec={mobileRowDurationsSec[rowIndex]} />
+          ))}
+        </div>
+
+        <div className="hidden md:block space-y-8">
+          <div>
           <h3 className="text-lg font-semibold text-foreground mb-4">HVAC Equipment Brands</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
             {hvacBrands.map((brand, index) => (
@@ -80,9 +151,9 @@ export function Brands() {
               </Card>
             ))}
           </div>
-        </div>
+          </div>
 
-        <div>
+          <div>
           <h3 className="text-lg font-semibold text-foreground mb-4">Building Materials Brands</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
             {buildingMaterialsBrands.map((brand, index) => (
@@ -101,6 +172,7 @@ export function Brands() {
                 </CardContent>
               </Card>
             ))}
+          </div>
           </div>
         </div>
       </div>
