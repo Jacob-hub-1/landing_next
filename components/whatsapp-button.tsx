@@ -13,10 +13,14 @@ export function WhatsAppButton() {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20bd5a] hover:scale-110 transition-all duration-200"
+      aria-label="Chat with us on Whatsapp"
+      title="Chat with us on Whatsapp"
+      className="fixed bottom-4 right-4 z-50 flex size-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-[transform,box-shadow] hover:bg-[#20bd5a] hover:shadow-xl active:scale-[0.97] sm:bottom-6 sm:right-6 sm:size-17 md:size-18"
     >
-      <MessageCircle className="h-7 w-7" />
+      <MessageCircle
+        className="size-8 stroke-[1.75] sm:size-9 md:size-10"
+        aria-hidden
+      />
     </a>
   )
 }

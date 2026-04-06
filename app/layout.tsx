@@ -5,6 +5,7 @@ import { organizationSchema } from '@/lib/schema'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { WhatsAppButton } from '@/components/whatsapp-button'
+import { AiChatRoot } from '@/components/ai-chat-root'
 import './globals.css'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -112,10 +113,12 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <SpeedInsights />
         <JsonLd data={organizationSchema} />
-        <Header />
-        {children}
-        <Footer />
-        <WhatsAppButton />
+        <AiChatRoot>
+          <Header />
+          {children}
+          <Footer />
+          <WhatsAppButton />
+        </AiChatRoot>
         <Analytics />
       </body>
     </html>
