@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { organizationSchema } from '@/lib/schema'
@@ -111,6 +112,18 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CSZDWW2BTL"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CSZDWW2BTL');
+          `}
+        </Script>
         <SpeedInsights />
         <JsonLd data={organizationSchema} />
         <AiChatRoot>

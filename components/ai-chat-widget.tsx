@@ -16,6 +16,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
 import { cleanChatResponse } from "@/lib/clean-chat-response"
 import { LinkifiedChatText } from "@/components/linkified-chat-text"
+import { gtagEvent } from "@/lib/gtag"
 
 type ChatRole = "user" | "assistant"
 
@@ -33,6 +34,14 @@ export function AiChatWidget() {
   const [error, setError] = React.useState<string | null>(null)
   const scrollRef = React.useRef<HTMLDivElement>(null)
 
+  const wasOpenRef = React.useRef(false)
+  React.useEffect(() => {
+    if (open && !wasOpenRef.current) {
+      gtagEvent("ai_chat_open", { placement: "floating_launcher" })
+    }
+    wasOpenRef.current = open
+  }, [open])
+
   React.useEffect(() => {
     if (!open) return
     const t = requestAnimationFrame(() => {
@@ -47,6 +56,9 @@ export function AiChatWidget() {
     if (!trimmed || pending) return
 
     setError(null)
+    gtagEvent("ai_chat_message_sent", {
+      message_length: trimmed.length,
+    })
     const userMsg: ChatMessage = {
       id: crypto.randomUUID(),
       role: "user",
@@ -87,6 +99,9 @@ export function AiChatWidget() {
         },
       ])
     } catch (err) {
+      gtagEvent("ai_chat_error", {
+        error_type: err instanceof Error ? err.name : "unknown",
+      })
       setError(err instanceof Error ? err.message : "Something went wrong.")
     } finally {
       setPending(false)
