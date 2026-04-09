@@ -23,7 +23,7 @@ export function ContactForm() {
     const data: { success?: boolean; message?: string } = await response.json()
 
     if (data.success) {
-      setResult("Success! Your message has been sent.")
+      setResult("Success! Your message has been sent. We will get back to you in 0-3 hours.")
       form.reset()
       return
     }
