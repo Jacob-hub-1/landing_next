@@ -33,7 +33,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6">
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium text-foreground">
             First Name
@@ -45,19 +45,6 @@ export function ContactForm() {
             required
             className="mt-2 block w-full px-4 py-3 bg-input border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             placeholder="Your first name"
-          />
-        </div>
-        <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-foreground">
-            Last Name
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            required
-            className="mt-2 block w-full px-4 py-3 bg-input border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-            placeholder="Your last name"
           />
         </div>
       </div>
